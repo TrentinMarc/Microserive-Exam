@@ -8,11 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="showWeather" />
         <module name="meteo" />
+        <module name="com-self-sprintboot-learning-eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="com-self-sprintboot-learning-eureka" target="1.8" />
       <module name="meteo" target="1.8" />
       <module name="showWeather" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="showWeather" options="" />
+    </option>
   </component>
 </project>

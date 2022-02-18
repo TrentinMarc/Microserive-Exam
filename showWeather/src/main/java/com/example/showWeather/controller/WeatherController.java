@@ -29,7 +29,7 @@ public class WeatherController {
     {
         System.out.println("Getting Weather details for city : " + city);
 
-        String response = restTemplate.exchange("http://localhost:8080/city/{city}",
+        String response = restTemplate.exchange("http://meteo-service/city/{city}",
                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, city).getBody();
 
         System.out.println("Response Body " + response);
@@ -43,7 +43,7 @@ public class WeatherController {
     {
         System.out.println("Getting Weather details for zipCode : " + zipCode);
 
-        String response = restTemplate.exchange("http://localhost:8080/zipCode/{zipCode}",
+        String response = restTemplate.exchange("http://meteo-service/zipCode/{zipCode}",
                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, zipCode).getBody();
 
         System.out.println("Response Body " + response);
@@ -57,7 +57,7 @@ public class WeatherController {
     {
         System.out.println("Getting Weather details for country : " + country);
 
-        String response = restTemplate.exchange("http://localhost:8080/country/{country}",
+        String response = restTemplate.exchange("http://meteo-service/country/{country}",
                 HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}, country).getBody();
 
         System.out.println("Response Body " + response);

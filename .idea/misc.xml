@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/meteo/pom.xml" />
         <option value="$PROJECT_DIR$/showWeather/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
       </list>
     </option>
   </component>

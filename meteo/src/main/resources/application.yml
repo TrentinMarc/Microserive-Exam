@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 eureka:
   instance:
@@ -15,7 +15,7 @@ eureka:
 
 spring:
   application:
-    name: show-weather-service
+    name: meteo-service
 
 management:
   security:

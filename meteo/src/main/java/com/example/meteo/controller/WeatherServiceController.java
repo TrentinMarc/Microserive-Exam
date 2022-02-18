@@ -5,10 +5,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,9 @@ import java.util.stream.Collectors;
 @RestController
 @Api(value = "WeatherService", description = "Service to retrieve weather")
 public class WeatherServiceController {
+
+    @Autowired
+    Environment environment;
 
     public static final List<Weather> weathers = new ArrayList<Weather>() {
         private static final long serialVersionUID = -3970206781360313502L;
@@ -28,6 +30,17 @@ public class WeatherServiceController {
             add(new Weather("Berlin", "10000", "Nicht verrückt ", "Allemagne"));
         }
     };
+
+    @GetMapping("/backend")
+    public String backend() {
+        System.out.println("Inside MyRestController::backend...");
+
+        String serverPort = environment.getProperty("local.server.port");
+
+        System.out.println("Port : " + serverPort);
+
+        return "Hello form Backend!!! " + " Host : localhost " + " :: Port : " + serverPort;
+    }
 
     @ApiOperation(value = "Get weathers by city", response = Weather.class, tags = "getWeatherByCity")
     @ApiResponses(value = {

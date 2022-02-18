@@ -21,7 +21,11 @@ public class WeatherController {
         return "Fallback response:: No weather details available temporarily. Service is probably down...";
     }
 
-
+    @RequestMapping("/client/frontend")
+    public String hi() {
+        String randomString = this.restTemplate.getForObject("http://meteo-service/backend", String.class);
+        return "Server Response :: " + randomString;
+    }
 
     @RequestMapping(value = "weatherDetails/city/{city}", method = RequestMethod.GET)
     @HystrixCommand(fallbackMethod = "fallbackMethod")

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Microserive-Exam.iml" filepath="$PROJECT_DIR$/.idea/Microserive-Exam.iml" />
       <module fileurl="file://$PROJECT_DIR$/meteo/meteo.iml" filepath="$PROJECT_DIR$/meteo/meteo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showWeather/showWeather.iml" filepath="$PROJECT_DIR$/showWeather/showWeather.iml" />
     </modules>
   </component>
 </project>

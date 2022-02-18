@@ -1,0 +1,15 @@
+version: "3"
+services:
+  eureka-server:
+    build: /EurekaServer/
+  showWeather:
+    build: /showWeather/
+    depends_on:
+      - eureka-server
+  meteo:
+    build: /meteo/
+    deploy:
+      replicas: 3
+    depends_on:
+      - eureka-server
+      - showWeather

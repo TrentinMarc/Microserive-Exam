@@ -22,6 +22,7 @@ public class WeatherController {
     }
 
 
+
     @RequestMapping(value = "weatherDetails/city/{city}", method = RequestMethod.GET)
     @HystrixCommand(fallbackMethod = "fallbackMethod")
     public String getWeatherByCity(@PathVariable String city)

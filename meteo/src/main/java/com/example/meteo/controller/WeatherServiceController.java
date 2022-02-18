@@ -1,6 +1,10 @@
 package com.example.meteo.controller;
 
 import com.example.meteo.bean.Weather;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Api(value = "WeatherService", description = "Service to retrieve weather")
 public class WeatherServiceController {
 
     public static final List<Weather> weathers = new ArrayList<Weather>() {
@@ -24,6 +29,12 @@ public class WeatherServiceController {
         }
     };
 
+    @ApiOperation(value = "Get weathers by city", response = Weather.class, tags = "getWeatherByCity")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Suceess|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"),
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "city not found") })
     @RequestMapping(
             name = "getWeatherByCity",
             method = RequestMethod.GET,
@@ -41,6 +52,12 @@ public class WeatherServiceController {
         }
     }
 
+    @ApiOperation(value = "Get weathers by zipcode", response = Weather.class, tags = "getWeatherByZipCode")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Suceess|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"),
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "zipcode not found") })
     @RequestMapping(
             name = "getWeatherByZipCode",
             method = RequestMethod.GET,
@@ -58,6 +75,12 @@ public class WeatherServiceController {
         }
     }
 
+    @ApiOperation(value = "Get weathers by country", response = Weather.class, responseContainer = "List", tags = "getWeatherByCountry")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Suceess|OK"),
+            @ApiResponse(code = 401, message = "not authorized!"),
+            @ApiResponse(code = 403, message = "forbidden!!!"),
+            @ApiResponse(code = 404, message = "country not found") })
     @RequestMapping(
             name = "getWeatherByCountry",
             method = RequestMethod.GET,
